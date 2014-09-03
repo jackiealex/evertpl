@@ -9,6 +9,21 @@
 
 ## * usage
 
+### **local global variable** 
+
+```
+template = require('evertpl');
+template.config({
+	src: './views',
+	local: {
+		mode: GLOBAL_OBJECT['mode']
+	}
+});
+```
+*visit local object like this		
+```
+__LOCAL__['mode']
+```
 ### **basic** syntax
 
 ```
@@ -80,7 +95,7 @@
 <%/block%>
 ```
 
-###  **literal** command
+###  **literal** command(NOT SUPPORT NOW)
 
 ```
 <%literal%>
