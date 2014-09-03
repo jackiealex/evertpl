@@ -20,9 +20,9 @@ template.config({
 	}
 });
 ```
-*visit local object like this		
+* visit local object like this		
 ```
-__LOCAL__['mode']
+__LOCAL__['mode'] or __LOCAL__.mode
 ```
 ### **basic** syntax
 
