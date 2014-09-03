@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>extend</title>
+	<%block name='css_head_base' %>
+		<!-- parent head css -->
+		<link rel="stylesheet" href="/st/css/index.css">
+		<!-- parent head css -->
+	<%/block%>
+	<%block name="js_head_base"%>
+	<script>
+		console.log('parent head js');
+	</script>
+	<%/block%>
+</head>
+<body>
+	<header id="fields">
+		<div class="include-label label">include</div>
+		<div class="block-label label">block</div>
+		<div class="expression-label label">expression</div>
+		<div class="literal-label label">literal</div>
+	</header>
+	<div id="main">
+	<div class="expression">${o['name']}</div>
+	<!-- declare block command -->
+	<div class="block">
+	<%block name="hello"%>
+		<%include	'extends_block/sub.html' /%>
+		<%include 'sub/sub-data' 'data' /%>
+		<%
+			var a = 12;
+			var a = $helper.hello('a');
+		%>
+		<div class="expression">
+			${a}
+		</div>
+		<%if (name) { %>
+			<div class="expression">${a}</div>
+		<%}%>
+		<div class="expression">
+		${age|trim}
+		</div>
+	<%/block%>
+	</div>
+	<%block name="js_footer_base"%>
+	<script>
+		console.log('parent footer js');
+	</script>
+	<%/block%>
+</body>
+</html>
+

@@ -1,0 +1,24 @@
+<%extends 'extends_block/parent.html' %>
+<%block name='js_head_base' append%>
+	<!-- child head js -->
+	<script>
+		console.log('child head js append');
+	</script>
+	<!-- child head js -->
+<%/block%>
+</div>
+
+<%block name="hello" append%>
+	this is main child
+	<%include name="extends_block/sub" /%>
+	<%var data = {appName: 'T 语言' } %>
+<%/block%>
+
+
+<%block name='js_footer_base' prepend%>
+	<script>
+		console.log('child footer js prepend');
+	</script>
+<%/block%>
+
+

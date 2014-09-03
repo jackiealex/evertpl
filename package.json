@@ -1,0 +1,40 @@
+{
+  "name": "evertpl",
+  "version": "2.0.14",
+  "description": "## * Feature * block、extends、include、literal command supported, with syntax-sugar and smarty-like tags",
+  "main": "index.js",
+  "directories": {
+    "doc": "doc",
+    "test": "test"
+  },
+  "dependencies": {
+    "express": "~4.7.2",
+    "glob": "~4.0.5"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "test"
+  },
+  "author": {
+    "name": "alex"
+  },
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jackiealex/smartjs.git"
+  },
+  "keywords": [
+    "smart",
+    "nodejs",
+    "template"
+  ],
+  "bugs": {
+    "url": "https://github.com/jackiealex/smartjs/issues"
+  },
+  "homepage": "https://github.com/jackiealex/smartjs",
+  "_shasum": "c67cb5c7d569e552a0d27a6c8493966ea083cf09",
+  "_from": "evertpl@latest",
+  "readme": "### A node template, best choice.\n\n## * Feature\n* block、extends、include、literal command supported, with syntax-sugar and smarty-like tags\n\n* pipe filters compute with **symbol**  '|'\n\n* rumtime stably, ensure your empty varible run stably\n\n## * usage\n\n### **basic** syntax\n\n```\n<%\n\tvar a = 12;\n\tvar de = null;\n\tvar list = [1,2,3];\n%>\n<% if(a) { %>\n\t<div>${name} </div>\n\t<div>unknow variable: ${wo_wo} </div>\n<% } %>\n<%for(var i=0; i <list.length; i++) {%>\n\t<div>${list[i]}</div>\n<%}%>\n```\n\n### **include** command\n\n```\n<div id=\"main\">\n    <% var itemObj = {} %>\n\t<% include name='test/li.html' var='itemObj' /%>\n</div>\n```\n\n* or, just include a tpl module without varaible\n\n\n```\n<div id=\"main\">\n    <%var itemObj = {} %>\n\t<%include name='test/li.html'  /%>\n</div>\n```\n\n### **extends** & **block** command\n\n* *parent.html*\n\n```\n<head>\n\t<meta charset=\"UTF-8\">\n\t<title>extend</title>\n\t<%block name='css_head_base' %>\n\t\t<link rel=\"stylesheet\" href=\"index.css\">\n\t<%/block%>\n\t<%block name=\"js_head_base\"%>\n\t\t<script src='a.js'></script>\n\t\t<script src='b.js'></script>\n\t<%/block%>\n</head>\n```\n\n* *child.html*\n\n```\n<%extends 'parent.html' /%>\n<%block name='js_head_base' append%>\n\t<script src=\"page.js\"></script>\n\t<script>\n\t\talert(1);\n\t</script>\n<%/block%>\n<%block name='js_head_base' append%>\n\t.body {\n\t\tbackground: red;\n\t}\n<%/block%>\n```\n\n###  **literal** command\n\n```\n<%literal%>\n\t<script>\n\t\tvar a = '<% I am just string,  do NOT kill me, <%please%> ${titter} %>';\n\t</script>\n<%/literal%>\n```\n\n#### A template engine do what\n\n* just make a **template string** below\n\n```\n<ul>\n  <%for (var i =0 ; ) {%>\n  \t<li></li>\n  <%}%>\n  <% var  a = 3;%>\n</ul>\n```\n\n* to another string, **function body string**\n\n```\nvar str =\n'\n\tvar $out= \"<ul>\";\n\tfor (var i =0 ;... ) {\n\t\t$out += \"<li></li>\"\n\t}\n\t$out += \"</ul>\"\n'\n```\n\n* then we get the **render** function, like this~\n\n```\nRender = new Function(str)\n```\n\n## the compile princeple\n\n\n\n",
+  "readmeFilename": "readme.md",
+  "_id": "evertpl@2.0.8"
+}

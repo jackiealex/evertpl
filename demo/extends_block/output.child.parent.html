@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>extend</title>
+	<!-- <%block name='css_head_base' %> -->
+		<link rel="stylesheet" href="index.css">
+	<!-- <%/block%> -->
+	<!-- <%block name="js_head_base"%> -->
+		<script src='a.js'></script>
+		<script src='b.js'></script>
+		<script src="page.js"></script>
+		<script>
+			alert(1);
+		</script>
+	<!-- <%/block%> -->
+</head>
+<body>
+	<!-- declare block commnad -->
+	<div id="main">
+	<!-- <%block name="helllo"%> -->
+
+		#this is a expression
+		<%
+			var a = 12;
+		%>
+		<%if (a) { %>
+			<div>dsfsdf</div>
+		<%}%>
+		#this is a include command
+		#this is evaluate
+		${hello|trim}
+	<!-- <%/block%> -->
+	</div>
+	<!-- <%block name="js_footer_base"%> -->
+		<script src='f.js'></script>
+		<script>
+			console.log('hello');
+		</script>
+	<!-- <%/block%> -->
+</body>
+</html>

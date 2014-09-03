@@ -1,0 +1,23 @@
+<div>hello</div>
+<%include name='include1' var='o'/%>
+
+<%
+	var a = 12;
+	var de = null;
+	var list = [1,2,3];
+%>
+<% if(a) { %>
+	<div>${name|trim|} </div>
+	<div>${name|trim|escape} </div>
+	<div>inline variable: ${a} </div>
+	<div>unknow variable: ${wo_wo} </div>
+	<div>unknow variable: ${wo_wo|ensure} </div>
+	<div>unknow variable: ${de|ensure|ensure|count} </div>
+<% } %>
+<%if (1) {%>
+	<div>1</div>
+<%}%>
+<%for(var i=0; i <list.length; i++) {%>
+	<div>${list[i]}</div>
+<%}%>
+
